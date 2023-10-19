@@ -18,21 +18,7 @@ void f_queue(stack_t **head, unsigned int counter)
  * @head: head of the stack
  * Return: no return
 */
-void addqueue(stack_t **head, int n)
-{
-	stack_t *new_node, *aux;
-
-	aux = *head;
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
-	{
-		printf("Error\n");
-	}
-	new_node->n = n;
-	new_node->next = NULL;
-	if (aux)
-	{
-		while (aux->next)
+void addqueue(stack_t **head, g	while (aux->next)
 			aux = aux->next;
 	}
 	if (!aux)
