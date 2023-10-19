@@ -7,6 +7,8 @@
  */
 void f_swap(stack_t **head, unsigned int counter)
 {
+	stack_t *first;
+	stack_t *second;
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
@@ -15,8 +17,8 @@ void f_swap(stack_t **head, unsigned int counter)
         exit(EXIT_FAILURE);
     }
 
-    stack_t *first = *head;
-    stack_t *second = first->next;
+    first = *head;
+    second = first->next;
 
     first->prev = second;
     first->next = second->next;

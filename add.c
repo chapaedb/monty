@@ -7,17 +7,19 @@
  */
 void f_add(stack_t **head, unsigned int counter)
 {
+	stack_t *temp;
+	int sum;
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't add, stack too short\n", counter);
-        fclose(bus.file);  // Close the file before exiting
-        free_stack(*head);  // Free the stack memory
+        fclose(bus.file);
+        free_stack(*head);
         exit(EXIT_FAILURE);
     }
 
-    int sum = (*head)->n + (*head)->next->n;
+    sum = (*head)->n + (*head)->next->n;
 
-    stack_t *temp = *head;
+    temp = *head;
     *head = (*head)->next;
     (*head)->prev = NULL;
 
