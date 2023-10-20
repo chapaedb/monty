@@ -9,20 +9,20 @@ void f_push(stack_t **head, unsigned int number)
 {
     int num, index = 0, flag = 0;
 
-    if (bus.arg)
+    if (bus.value)
     {
-        if (bus.arg[0] == '-')
+        if (bus.value[0] == '-')
             index++;
-        for (; bus.arg[index] != '\0'; index++)
+        for (; bus.value[index] != '\0'; index++)
         {
-            if (!isdigit(bus.arg[index]))
+            if (!isdigit(bus.value[index]))
                 flag = 1;
         }
         if (flag == 1)
         {
             fprintf(stderr, "L%d: usage: push integer\n", number);
-            fclose(bus.file);
-            free(bus.content);
+            fclose(bus.file_ptr);
+            free(bus.content_ptr);
             free_stack(*head);
             exit(EXIT_FAILURE);
         }
@@ -30,16 +30,14 @@ void f_push(stack_t **head, unsigned int number)
     else
     {
         fprintf(stderr, "L%d: usage: push integer\n", number);
-        fclose(bus.file);
-        free(bus.content);
+        fclose(bus.file_ptr);
+        free(bus.content_ptr);
         free_stack(*head);
         exit(EXIT_FAILURE);
     }
-    
-    num = atoi(bus.arg);
 
-    if (bus.lifi == 0)
+    num = atoi(bus.value);
+
+    if (bus.flag == 0)
         addnode(head, num);
-    else
-        addqueue(head, num);
 }

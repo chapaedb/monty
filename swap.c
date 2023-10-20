@@ -3,30 +3,26 @@
 /**
  * f_swap - Swaps the top two elements of the stack
  * @head: Double pointer to the head of the stack
- * @counter: Line number of the opcode
+ * @number: Line number of the opcode
  */
-void f_swap(stack_t **head, unsigned int counter)
+void f_swap(stack_t **head, unsigned int number)
 {
-	stack_t *first;
-	stack_t *second;
+    stack_t *temp;
+
     if (*head == NULL || (*head)->next == NULL)
     {
-        fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
-        fclose(bus.file);
+        fprintf(stderr, "L%d: can't swap, stack too short\n", number);
         free_stack(*head);
+        fclose(bus.file_ptr);
         exit(EXIT_FAILURE);
     }
 
-    first = *head;
-    second = first->next;
-
-    first->prev = second;
-    first->next = second->next;
-    second->prev = NULL;
-    second->next = first;
-
-    if (first->next != NULL)
-        first->next->prev = first;
-
-    *head = second;
+    temp = *head;
+    *head = (*head)->next;
+    temp->next = (*head)->next;
+    temp->prev = *head;
+    if ((*head)->next != NULL)
+        (*head)->next->prev = temp;
+    (*head)->next = temp;
+    (*head)->prev = NULL;
 }

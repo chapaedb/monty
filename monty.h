@@ -34,10 +34,10 @@ typedef struct stack_s
  */
 typedef struct bus_s
 {
-	char *arg;
-	FILE *file;
-	char *content;
-	int lifi;
+	char *value;
+	FILE *file_ptr;
+	char *content_ptr;
+	int flag;
 }  bus_t;
 extern bus_t bus;
 /**
