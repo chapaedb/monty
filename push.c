@@ -9,24 +9,20 @@ void f_push(stack_t **head, unsigned int number)
 {
     int num, index = 0, flag = 0;
 
-    if (bus.value != NULL && bus.value[0] != '\0')
+    if (bus.value)
     {
         if (bus.value[0] == '-')
             index++;
         for (; bus.value[index] != '\0'; index++)
         {
-            if (!isdigit(bus.value[index]))
-            {
+            if (bus.value[index] < 48 || bus.value[index] > 57)
                 flag = 1;
-                break; // Exit the loop if a non-digit character is encountered
-            }
         }
         if (flag == 1)
         {
             fprintf(stderr, "L%d: usage: push integer\n", number);
             fclose(bus.file_ptr);
             free(bus.content_ptr);
-            // Free the stack
             free_stack(*head);
             exit(EXIT_FAILURE);
         }
@@ -36,7 +32,6 @@ void f_push(stack_t **head, unsigned int number)
         fprintf(stderr, "L%d: usage: push integer\n", number);
         fclose(bus.file_ptr);
         free(bus.content_ptr);
-        // Free the stack
         free_stack(*head);
         exit(EXIT_FAILURE);
     }
@@ -46,5 +41,5 @@ void f_push(stack_t **head, unsigned int number)
     if (bus.flag == 0)
         addnode(head, num);
     else
-        addqueue(head, num);
+            addqueue(head, num);
 }
