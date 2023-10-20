@@ -40,4 +40,6 @@ void f_push(stack_t **head, unsigned int number)
 
     if (bus.flag == 0)
         addnode(head, num);
+    else
+	    addqueue(head, num);
 }
