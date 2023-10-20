@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	line_number++;
         if (read_line > 0)
         {
-            execute(content, &stack, size, file_ptr);
+            execute(content, &stack, line_number, file_ptr);
         }
         free(content);
     }

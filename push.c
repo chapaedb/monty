@@ -10,8 +10,7 @@ void f_push(stack_t **head, unsigned int number)
     int num, index = 0, flag = 0;
 
     if (bus.value)
-    {
-        if (bus.value[0] == '-')
+	{
             index++;
         for (; bus.value[index] != '\0'; index++)
         {

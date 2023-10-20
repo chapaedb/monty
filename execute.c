@@ -14,19 +14,19 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	char *value_str;
 	int value;
 
-    char *opcode = strtok(content, " \t\n");
+    char *opcode = strtok(content, " \n\t");
     if (opcode == NULL || opcode[0] == '#')
         return 0;
 
     if (strcmp(opcode, "push") == 0)
     {
-        value_str = strtok(NULL, " \t\n");
+        value_str = strtok(NULL, " \n\t");
         if (value_str == NULL)
         {
             fprintf(stderr, "L%d: usage: push integer\n", counter);
             free(content);
+	    fclose(file);
             free_stack(*stack);
-            fclose(file);
             exit(EXIT_FAILURE);
         }
 	value = atoi(value_str);
