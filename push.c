@@ -11,14 +11,14 @@ void f_push(stack_t **head, unsigned int number)
     
     if (bus.value)
 {
-    for (index = 0; bus.value[index] != '\0'; index++)
+for (index = 0; bus.value[index] != '\0'; index++)
     {
         if (bus.value[index] < '0' || bus.value[index] > '9')
         {
             flag = 1;
             break;
         }
-    }
+    }	
     if (flag == 1)
     {
         fprintf(stderr, "L%d: usage: push integer\n", number);

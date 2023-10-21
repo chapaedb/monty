@@ -12,8 +12,8 @@ void f_add(stack_t **head, unsigned int number)
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't add, stack too short\n", number);
-        free_stack(*head);
         fclose(bus.file_ptr);
+	free_stack(*head);
         exit(EXIT_FAILURE);
     }
 
