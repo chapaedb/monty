@@ -10,12 +10,12 @@
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
         instruction_t opls[] = {
-                                {"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-                                {"pop", f_pop},
-                                {"swap", f_swap},
-                                {"add", f_add},
-                                {"nop", f_nop},
-                                {"div", f_div},
+                                {"push", _push}, {"pall", _pall}, {"pint", _pint},
+                                {"pop", _pop},
+                                {"swap", _swap},
+                                {"add", _add},
+                                {"nop", _nop},
+                                {"div", _div},
                                 {NULL, NULL}
                                 };
         unsigned int i = 0;

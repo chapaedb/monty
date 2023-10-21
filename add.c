@@ -5,7 +5,7 @@
  * @head: Double pointer to the head of the stack
  * @number: Line number of the opcode
  */
-void f_add(stack_t **head, unsigned int number)
+void _add(stack_t **head, unsigned int number)
 {
     stack_t *temp;
 

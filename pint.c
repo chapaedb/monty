@@ -5,7 +5,7 @@
  * @head: Double pointer to the head of the stack
  * @number: Line number of the opcode
  */
-void f_pint(stack_t **head, unsigned int number)
+void _pint(stack_t **head, unsigned int number)
 {
     stack_t *temp;
 
