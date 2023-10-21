@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
     }
 
     file_ptr = fopen(argv[1], "r");
+    bus.file_ptr = file_ptr;
     if (!file_ptr)
     {
         fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
         free(content);
     }
 
-    fclose(file_ptr);
-    free_stack(stack);
+     free_stack(stack);
+     fclose(file_ptr);
     return 0;
 }

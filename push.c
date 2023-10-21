@@ -8,33 +8,36 @@
 void f_push(stack_t **head, unsigned int number)
 {
     int num, index = 0, flag = 0;
-
+    
     if (bus.value)
-	{
-            index++;
-        for (; bus.value[index] != '\0'; index++)
+{
+    for (index = 0; bus.value[index] != '\0'; index++)
+    {
+        if (bus.value[index] < '0' || bus.value[index] > '9')
         {
-            if (bus.value[index] < 48 || bus.value[index] > 57)
-                flag = 1;
-        }
-        if (flag == 1)
-        {
-            fprintf(stderr, "L%d: usage: push integer\n", number);
-            fclose(bus.file_ptr);
-            free(bus.content_ptr);
-            free_stack(*head);
-            exit(EXIT_FAILURE);
+            flag = 1;
+            break;
         }
     }
-    else
+    if (flag == 1)
     {
         fprintf(stderr, "L%d: usage: push integer\n", number);
-        fclose(bus.file_ptr);
+        if (bus.file_ptr != NULL)
+            fclose(bus.file_ptr);
         free(bus.content_ptr);
         free_stack(*head);
         exit(EXIT_FAILURE);
     }
-
+}
+else
+{
+    fprintf(stderr, "L%d: usage: push integer\n", number);
+    if (bus.file_ptr != NULL)
+        fclose(bus.file_ptr);
+    free(bus.content_ptr);
+    free_stack(*head);
+    exit(EXIT_FAILURE);
+}
     num = atoi(bus.value);
 
     if (bus.flag == 0)
