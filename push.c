@@ -21,13 +21,13 @@ void _push(stack_t **head, unsigned int counter)
                 { fprintf(stderr, "L%d: usage: push integer\n", counter);
                         fclose(bus.file_ptr);
                         free(bus.content_ptr);
-                        free_stack(*head);
+                        release(*head);
                         exit(EXIT_FAILURE); }}
         else
         { fprintf(stderr, "L%d: usage: push integer\n", counter);
                 fclose(bus.file_ptr);
                 free(bus.content_ptr);
-                free_stack(*head);
+                release(*head);
                 exit(EXIT_FAILURE); }
         n = atoi(bus.value);
         if (bus.flag == 0)

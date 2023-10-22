@@ -21,7 +21,7 @@ void _div(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
 		fclose(bus.file_ptr);
 		free(bus.content_ptr);
-		free_stack(*head);
+		release(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -30,7 +30,7 @@ void _div(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: division by zero\n", counter);
 		fclose(bus.file_ptr);
 		free(bus.content_ptr);
-		free_stack(*head);
+		release(*head);
 		exit(EXIT_FAILURE);
 	}
 	aux = h->next->n / h->n;

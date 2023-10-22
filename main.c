@@ -39,7 +39,7 @@ execute(content, &stack, counter, file);
                 }
                 free(content);
         }
-        free_stack(stack);
+        release(stack);
         fclose(file);
 return (0);
 }

@@ -12,7 +12,7 @@ void _pop(stack_t **head, unsigned int number)
     if (*head == NULL)
     {
         fprintf(stderr, "L%d: can't pop an empty stack\n", number);
-        free_stack(*head);
+        release(*head);
         fclose(bus.file_ptr);
         exit(EXIT_FAILURE);
     }

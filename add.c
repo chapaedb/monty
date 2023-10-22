@@ -13,7 +13,7 @@ void _add(stack_t **head, unsigned int number)
     {
         fprintf(stderr, "L%d: can't add, stack too short\n", number);
         fclose(bus.file_ptr);
-	free_stack(*head);
+	release(*head);
         exit(EXIT_FAILURE);
     }
 

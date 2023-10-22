@@ -60,7 +60,7 @@ void _push(stack_t **head, unsigned int number);
 void _pall(stack_t **head, unsigned int number);
 void _pint(stack_t **head, unsigned int number);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
-void free_stack(stack_t *head);
+void release(stack_t *head);
 void _pop(stack_t **head, unsigned int counter);
 void _swap(stack_t **head, unsigned int counter);
 void _add(stack_t **head, unsigned int counter);

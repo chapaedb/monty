@@ -12,7 +12,7 @@ void _swap(stack_t **head, unsigned int number)
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't swap, stack too short\n", number);
-        free_stack(*head);
+        release(*head);
         fclose(bus.file_ptr);
         exit(EXIT_FAILURE);
     }
